@@ -32,11 +32,11 @@ module.exports.scrape = (event, context, callback) => {
 		
 		console.log("start scraping ",q.url);
 		scrapper.scrape(q.url, function(err, result) {
-		    if (err) {
-		        return respond(400, 'error: '+err, callback);
-		    }
+	    if (err) {
+        return respond(400, 'error: '+err, callback);
+	    }
 			
-		    //modify refs in html source
+	    //modify refs in html source
 			let s = new stream.Readable();
 			s._read = function noop() {};
 			s.push(result);
